@@ -1,0 +1,84 @@
+APPROACH1:
+sort(arr,arr+n);
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Approach 2:
+//{ Driver Code Starts
+#include<bits/stdc++.h>
+using namespace std;
+
+
+
+// } Driver Code Ends
+class Solution
+{
+    public:
+    void sort012(int a[], int n)
+    {
+        // code here 
+        int count0=0;
+        int count1=0;
+        int count2=0;
+        for(int i=0;i<n;i++){
+            if(a[i]==0){
+                count0++;
+            }
+            if(a[i]==1){
+                count1++;
+            }
+            if(a[i]==2){
+                count2++;
+            }
+        }
+        for(int i=0;i<n;i++){
+            if(count0!=0){
+                a[i]=0;
+                count0--;
+            }
+            else if(count1!=0){
+                a[i]=1;
+                count1--;
+            }
+            else{
+                a[i]=2;
+                count2--;
+            }
+        }
+    }
+    
+};
+//////////////////////////////////////////////////////////////////////////////////
+Approach 3:
+//{ Driver Code Starts
+#include<bits/stdc++.h>
+using namespace std;
+
+
+
+// } Driver Code Ends
+class Solution
+{
+    public:
+    void sort012(int a[], int n)
+    {
+        // code here 
+        int low=0;
+        int mid=0;
+        int high=n-1;
+        
+        while(mid<=high){
+            if(a[mid]==1){
+                mid++;
+            }
+            else if(a[mid]==0){
+                swap(a[low],a[mid]);
+                mid++;
+                low++;
+            }
+            else{
+                swap(a[mid],a[high]);
+                high--;
+            }
+        }
+    }
+    
+};
